@@ -1,12 +1,56 @@
-# React + Vite
+# Task Manager – Full Stack CRUD App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a full-stack task management application built with:
 
-## Expanding the ESLint configuration
+- **Frontend**: React (Vite)
+- **Backend**: Spring Boot (Java)
+- **Database**: PostgreSQL
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+task-manager/
+├── frontend/ → React + Vite
+└── backend/ → Spring Boot API
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Amine-UrMenToR/task-manager-fullstack.git
+cd task-manager
+```
+
+### 2. Run the Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Runs at: http://localhost:5173
+
+### 3. Run the Backend
+
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+Backend runs at: http://localhost:8080
+
+### 4. Configure PostgreSQL
+
+Update backend/src/main/resources/application.properties with your own DB credentials:
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/task_db
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+
+Make sure your PostgreSQL server is running.
