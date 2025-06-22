@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from '../api/axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function AddTask() {
   const [task, setTask] = useState({
@@ -22,7 +23,7 @@ export default function AddTask() {
 
     axios.post('/tasks', task)
       .then(() => {
-        // Reset form (optional)
+        toast.success('✅ Task added!');
         setTask({
           title: '',
           description: '',
@@ -30,11 +31,12 @@ export default function AddTask() {
           priority: '',
           status: ''
         });
-
-        // Redirect to home
         navigate('/');
       })
-      .catch(err => console.error('Error adding task:', err));
+      .catch(err => {
+        console.error('Error adding task:', err);
+        toast.error('❌ Failed to add task');
+      });
   };
 
   return (
