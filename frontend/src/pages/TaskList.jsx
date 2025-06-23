@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from '../api/axios';
 
 export default function TaskList() {
@@ -17,6 +18,8 @@ export default function TaskList() {
         {tasks.map(task => (
           <li key={task.id}>
             {task.title} - {task.status}
+            {' '}
+            <Link to={`/edit/${task.id}`}>Edit</Link>
           </li>
         ))}
       </ul>
