@@ -1,0 +1,88 @@
+/* in src/index.css (or Header.css) */
+
+/* 1) Bright-blue header background, white text */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;      /* bright bootstrap-blue */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;                     /* white title */
+}
+
+.header .user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header .user-actions span {
+  color: #fff;                     /* white “Welcome…” */
+  font-size: 0.95rem;
+}
+
+/* 2) Logout button: white bg, blue text */
+.header .user-actions button {
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* 3) Hover state for button */
+.header .user-actions button:hover {
+  background-color: #e6e6e6;
+}
+
+/* 4) Login link: outline, white text */
+.header .user-actions a {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.header .user-actions a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 5) Make the “All Tasks” heading match */
+h2 {
+  color: #007bff;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header h1 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .header .user-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

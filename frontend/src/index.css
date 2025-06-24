@@ -1,40 +1,40 @@
-:root {
+/* ─── 1) RESET ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── 2) BASE LAYOUT ─────────────────────────────────────────────── */
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;      /* always white behind everything */
+  color: #213547;                 /* dark text on white */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;             /* kill horizontal scrollbars */
 }
 
+/* ─── 3) LINKS ───────────────────────────────────────────────────── */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #007bff;                 /* bright blue links */
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  color: #0056b3;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
+/* ─── 4) HEADINGS & BUTTONS ──────────────────────────────────────── */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -42,27 +42,48 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #007bff;      /* bright blue buttons */
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #0056b3;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* ─── 5) LIGHT/THEME SWITCH (if you still want dark mode) ───────── */
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+  }
+  a {
+    color: #646cff;
   }
   a:hover {
-    color: #747bff;
+    color: #535bf2;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-color: transparent;
+  }
+  button:hover {
+    border-color: #646cff;
   }
 }
+
+/* ─── 6) YOUR CONTAINER ───────────────────────────────────────────── */
+.container {
+  max-width: 960px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ─── 7) KEEP THE REST OF YOUR COMPONENT STYLES BELOW ───────────── */
+
+/* (task cards, forms, task-list, etc.…) */
+/* … your existing .task-card, .form-group, .task-list, etc. … */
+
