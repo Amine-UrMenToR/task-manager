@@ -1,10 +1,13 @@
+// src/main/java/com/amine/backend/model/Task.java
 package com.amine.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "tasks")
 public class Task {
 
     @Id
@@ -18,11 +21,17 @@ public class Task {
 
     private LocalDate dueDate;
 
-    private String priority; // e.g. LOW, MEDIUM, HIGH
+    private String priority; // LOW, MEDIUM, HIGH
 
-    private String status;   // e.g. PENDING, COMPLETED
+    private String status;   // PENDING, COMPLETED
 
-    // Getters and Setters
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "owner_id", nullable = false)
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    private User owner;
+
+    // ───── Getters & Setters ─────
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -40,4 +49,7 @@ public class Task {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+
+    public User getOwner() { return owner; }
+    public void setOwner(User owner) { this.owner = owner; }
 }
