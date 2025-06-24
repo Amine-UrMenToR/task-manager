@@ -3,6 +3,7 @@ import axios from '../api/axios';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   const [creds, setCreds] = useState({username:'',password:''});
@@ -21,11 +22,17 @@ export default function LoginPage() {
     }
   };
 
+
   return (
+  <>
     <form onSubmit={handleSubmit}>
       <input name="username" onChange={e=>setCreds({...creds,username:e.target.value})} required/>
       <input type="password" name="password" onChange={e=>setCreds({...creds,password:e.target.value})} required/>
       <button type="submit">Login</button>
     </form>
+    <p>
+      Don’t have an account? <Link to="/register">Register here</Link>
+    </p>
+  </>
   );
 }

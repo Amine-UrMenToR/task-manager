@@ -1,16 +1,20 @@
+// src/routes/AppRoutes.jsx
 import { Routes, Route } from 'react-router-dom';
+import TaskList    from '../pages/TaskList';
+import AddTask     from '../pages/AddTask';
+import EditTask    from '../pages/EditTask';
+import LoginPage   from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 import ProtectedRoute from '../components/ProtectedRoute';
-
-import TaskList from '../pages/TaskList';
-import AddTask   from '../pages/AddTask';
-import EditTask  from '../pages/EditTask';
-import LoginPage from '../pages/LoginPage';
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
+      {/* public auth routes */}
+      <Route path="/login"    element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
 
+      {/* protected app routes */}
       <Route
         path="/"
         element={
@@ -19,7 +23,6 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/add"
         element={
@@ -28,7 +31,6 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/edit/:id"
         element={
