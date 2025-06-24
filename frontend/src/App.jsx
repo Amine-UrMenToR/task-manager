@@ -1,7 +1,13 @@
+// src/App.jsx
+
+import Header    from './components/Header';
 import AppRoutes from './routes/AppRoutes';
 
-function App() {
-  return <AppRoutes />;
+export default function App() {
+  return (
+    <>
+      <Header />
+      <AppRoutes />
+    </>
+  );
 }
-
-export default App;
