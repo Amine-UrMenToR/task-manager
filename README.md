@@ -21,17 +21,19 @@ A simple task management application built with:
 
 ## Project Structure
 
+```text
 task-manager/
-    docker-compose.yml        # Dev-time compose
-    frontend/                 # React + Vite SPA
-        Dockerfile                # Frontend image
-    backend/                  # Spring Boot REST API
-        Dockerfile                # Backend image
-    src/
-    src/main/resources/
-        application.properties
-        db/migration/         # Flyway migrations
-    README.md
+├── docker-compose.yml        # Docker Compose for all services
+├── frontend/                 # React + Vite SPA
+│   └── Dockerfile            # Frontend Docker image
+├── backend/                  # Spring Boot REST API
+│   ├── Dockerfile            # Backend Docker image
+│   ├── src/
+│   └── src/main/resources/
+│       ├── application.properties
+│       └── db/migration/     # Flyway migrations
+└── README.md
+```
 
 ---
 
