@@ -19,20 +19,19 @@ A simple task management application built with:
 
 ---
 
-
 ## Project Structure
 
 task-manager/
-├── docker-compose.yml        # Dev-time compose
-├── frontend/                 # React + Vite SPA
-    Dockerfile                # Frontend image
-├── backend/                  # Spring Boot REST API
-    Dockerfile                # Backend image
+    docker-compose.yml        # Dev-time compose
+    frontend/                 # React + Vite SPA
+        Dockerfile                # Frontend image
+    backend/                  # Spring Boot REST API
+        Dockerfile                # Backend image
     src/
     src/main/resources/
         application.properties
         db/migration/         # Flyway migrations
-└── README.md
+    README.md
 
 ---
 
@@ -44,6 +43,7 @@ task-manager/
 - [PostgreSQL](https://www.postgresql.org/) (or Docker)  
 - [Docker & Docker Compose](https://docs.docker.com/compose/)
 
+---
 
 ##  Getting Started
 
@@ -90,6 +90,7 @@ npm run dev
 
 SPA → http://localhost:5173
 
+---
 
 ## Running with Docker Compose
 
@@ -120,6 +121,7 @@ Frontend ← localhost:4173
 docker-compose down
 ```
 
+---
 
 ## Database Migrations
 
@@ -129,6 +131,8 @@ All schema changes live in backend/src/main/resources/db/migration as Flyway scr
 - Future migrations → V2__…, V3__…, etc.
 
 Flyway runs automatically on startup.
+
+---
 
 ## License
 
